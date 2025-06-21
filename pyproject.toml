@@ -1,0 +1,43 @@
+[project]
+name = "learningdataengineering"
+version = "0.1.0"
+description = "A central repository I use to teach myself data engineering technologies as well as devops and ci/cd concepts."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "apache-airflow>=3.0.2",
+    "python-dotenv>=1.1.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+    "ruff>=0.12.0",
+]
+
+[tool.ruff]
+line-length = 79
+src = ["utils", "dags", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings  
+    "F",   # pyflakes
+    "I",   # isort (import sorting)
+    "N",   # pep8-naming
+    "UP",  # pyupgrade (modern Python syntax)
+    "B",   # flake8-bugbear (common bugs)
+    "AIR", # airflow
+    "PD",  # pandas
+    "PT",  # pytest
+]
+
+[tool.ruff.lint.per-file-ignores]
+"dags/dag.py" = ["E402"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["utils"]
+
+[tool.ruff.format]
+quote-style = "double"

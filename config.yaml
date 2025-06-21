@@ -1,0 +1,5 @@
+latitude: 37.7749
+longitude: -122.4194
+raw_path: ./data/raw/raw.json
+processed_path: ./data/processed/processed.csv
+sink_path: ./data/data.csv
