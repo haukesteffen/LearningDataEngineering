@@ -8,14 +8,14 @@ project_root = Path(__file__).parent.parent
 sys.path.append(str(project_root))
 
 from utils.cleanup import cleanup_weather_files
-from utils.config import Config, load_config
+from utils.config import Config
 from utils.extract import fetch_weather_data
 from utils.load import save_weather_data
 from utils.transform import process_weather_data
 
 # fetch parameters from configuration file
-CONFIG_PATH = "./config.yaml"
-config = load_config(path=CONFIG_PATH)
+CONFIG_PATH = Path("./config.yaml")
+config = Config.from_file(path=CONFIG_PATH)
 
 
 @dag(dag_id="weather_etl", schedule="*/5 * * * *", catchup=False)
