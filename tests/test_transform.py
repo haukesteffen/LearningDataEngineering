@@ -8,7 +8,9 @@ from utils.transform import process_weather_data
 
 
 def test_raw_path_not_found(tmp_path):
-    """Test that FileNotFoundError is raised when raw path doesn't exist."""
+    """
+    Test that FileNotFoundError is raised when raw path doesn't exist.
+    """
     config = Config(
         latitude=0.0,
         longitude=0.0,
@@ -23,7 +25,9 @@ def test_raw_path_not_found(tmp_path):
 
 
 def test_successful_processing_new_file(tmp_path):
-    """Test processing when output file doesn't exist yet."""
+    """
+    Test processing when output file doesn't exist yet.
+    """
     # Create test data
     weather_data = {
         "name": "Test City",
