@@ -1,17 +1,11 @@
-import sys
 from pathlib import Path
 
 from airflow.decorators import dag, task
-
-# Add the project root directory to Python path
-project_root = Path(__file__).parent.parent
-sys.path.append(str(project_root))
-
-from utils.cleanup import cleanup_weather_files
-from utils.config import Config
-from utils.extract import fetch_weather_data
-from utils.load import save_weather_data
-from utils.transform import process_weather_data
+from etl_pipeline.cleanup import cleanup_weather_files
+from etl_pipeline.config import Config
+from etl_pipeline.extract import fetch_weather_data
+from etl_pipeline.load import save_weather_data
+from etl_pipeline.transform import process_weather_data
 
 # fetch parameters from configuration file
 CONFIG_PATH = Path("./config.yaml")

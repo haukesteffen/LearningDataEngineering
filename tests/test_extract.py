@@ -1,16 +1,10 @@
 import json
-import sys
 from pathlib import Path
 
 import pytest
+from etl_pipeline.config import Config, SecretsConfig
+from etl_pipeline.extract import fetch_weather_data
 from pydantic import SecretStr
-
-# Add the project root directory to Python path
-project_root = Path(__file__).parent.parent
-sys.path.append(str(project_root))
-
-from utils.config import Config, SecretsConfig
-from utils.extract import fetch_weather_data
 
 
 def test_request_invalid_status_code(mocker):
